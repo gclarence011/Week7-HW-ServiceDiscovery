@@ -41,7 +41,7 @@ On a new terminal
 
 ```bash
 cd "HW"
-python example_service.py user-service 8001
+python example_service.py user-service 8002
 ```
 
 The service registers itself at `http://localhost:5001` by default (the registry URL in this exercise). It then sends a heartbeat every 10s and deregisters on Ctrl+C.
