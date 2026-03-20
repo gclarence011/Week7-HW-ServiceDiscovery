@@ -17,6 +17,26 @@ A simple Python-based service registry and client demo for microservice discover
 - in-memory registry with thread-safety (`threading.Lock`)
 - client demo for local microservice behavior
 
+## Architecture Diagram
+
+```mermaid
+graph LR
+  A[Example Service] --> |POST /register| B(Service Registry)
+  A --> |POST /heartbeat| B
+  A --> |POST /deregister| B
+  B --> |GET /discover/:service| C[Service Discovery Client]
+  B --> |GET /services| C
+  B --> |GET /health| C
+  subgraph Registry
+    B
+  end
+  subgraph Client
+    A
+    C
+  end
+```
+
+
 ## Requirements
 
 - Python 3.8+
